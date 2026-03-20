@@ -564,6 +564,237 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
   </div>
 </div>
 
+
+<!-- ═══════ SERIES HOME PAGE ═══════ -->
+<div class="page" id="page-series-home">
+  <div class="top-section" id="topSectionSeries"></div>
+  <div class="tabs-section">
+    <div class="tabs-bar">
+      <button class="tab-btn active" onclick="switchSeriesTab('emissao',this)">📡 Em Emissão</button>
+      <button class="tab-btn" onclick="switchSeriesTab('lista',this)">📺 A Minha Lista</button>
+      <button class="tab-btn" onclick="switchSeriesTab('premiacoes',this)">🏆 Premiações</button>
+    </div>
+    <div class="tab-content active" id="stab-content-emissao"><div class="movies-grid" id="grid-series-emissao"></div></div>
+    <div class="tab-content" id="stab-content-lista"><div class="movies-grid" id="grid-series-lista"></div></div>
+    <div class="tab-content" id="stab-content-premiacoes"><div class="awards-grid" id="grid-series-premiacoes"></div></div>
+  </div>
+</div>
+
+<!-- ═══════ SERIES BROWSE PAGE ═══════ -->
+<div class="page" id="page-series-browse" style="flex-direction:column;">
+  <div class="browse-header">
+    <button class="browse-back" onclick="goSeriesHome()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar
+    </button>
+    <span class="browse-title">Todas as Séries</span>
+    <span class="browse-count" id="seriesBrowseCount"></span>
+  </div>
+  <div class="browse-search-row">
+    <div class="browse-input-wrap">
+      <span class="browse-input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+      <input class="browse-search" id="seriesBrowseInput" placeholder="Pesquisar por título..." autocomplete="off">
+    </div>
+    <select class="sort-select" onchange="setSeriesSort(this.value)">
+      <option value="title">Título A–Z</option>
+      <option value="rating">Classificação</option>
+      <option value="year">Ano</option>
+    </select>
+  </div>
+  <div class="browse-layout">
+    <aside class="browse-sidebar">
+      <div class="sb-section">
+        <span class="sb-title">Estatísticas</span>
+        <div class="stat-mini-grid">
+          <div class="stat-mini"><span class="stat-mini-num" id="sStatTotal">0</span><span class="stat-mini-lbl">Séries</span></div>
+          <div class="stat-mini"><span class="stat-mini-num" style="color:var(--gold)" id="sStatAvg">—</span><span class="stat-mini-lbl">Média ⭐</span></div>
+        </div>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-section">
+        <span class="sb-title">Género</span>
+        <div class="sb-row active" data-st="genre" data-sv="Todos" onclick="setSeriesSF(this,'genre')">Todos <span class="fc" id="sfc-todos">0</span></div>
+        <div class="sb-row" data-st="genre" data-sv="Drama" onclick="setSeriesSF(this,'genre')">Drama <span class="fc" id="sfc-drama">0</span></div>
+        <div class="sb-row" data-st="genre" data-sv="Ficção Científica" onclick="setSeriesSF(this,'genre')">Ficção Científica <span class="fc" id="sfc-fic">0</span></div>
+        <div class="sb-row" data-st="genre" data-sv="Crime" onclick="setSeriesSF(this,'genre')">Crime <span class="fc" id="sfc-crime">0</span></div>
+        <div class="sb-row" data-st="genre" data-sv="Comédia" onclick="setSeriesSF(this,'genre')">Comédia <span class="fc" id="sfc-com">0</span></div>
+        <div class="sb-row" data-st="genre" data-sv="Terror" onclick="setSeriesSF(this,'genre')">Terror <span class="fc" id="sfc-ter">0</span></div>
+        <div class="sb-row" data-st="genre" data-sv="Fantasia" onclick="setSeriesSF(this,'genre')">Fantasia <span class="fc" id="sfc-fan">0</span></div>
+        <div class="sb-row" data-st="genre" data-sv="Ação" onclick="setSeriesSF(this,'genre')">Ação <span class="fc" id="sfc-acao">0</span></div>
+      </div>
+      <div class="sb-divider"></div>
+      <div class="sb-section">
+        <span class="sb-title">Estado</span>
+        <div class="sb-row" data-st="status" data-sv="a-ver" onclick="setSeriesSF(this,'status')">A ver agora</div>
+        <div class="sb-row" data-st="status" data-sv="concluida" onclick="setSeriesSF(this,'status')">Concluída</div>
+        <div class="sb-row" data-st="status" data-sv="pausada" onclick="setSeriesSF(this,'status')">Pausada</div>
+      </div>
+    </aside>
+    <div class="browse-grid-area">
+      <div class="active-tags" id="seriesActiveTags"></div>
+      <div class="browse-grid" id="seriesBrowseGrid"></div>
+      <div class="sentinel" id="seriesSentinel"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SERIES DETAIL MODAL ═══════ -->
+<div class="modal-overlay" id="seriesModal">
+  <div class="series-modal">
+    <button class="fm-close" onclick="closeModal('seriesModal')">✕</button>
+    <div class="fm-top">
+      <div class="fm-poster">
+        <img id="smImg" src="" alt="" style="min-height:300px;">
+        <div class="fm-poster-actions">
+          <a id="smImdb" href="#" target="_blank" class="fm-imdb" style="display:none;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>IMDb
+          </a>
+        </div>
+      </div>
+      <div class="fm-info">
+        <div class="fm-title-row">
+          <div class="fm-title" id="smTitle"></div>
+          <button class="fm-edit-btn" id="smEditBtn" onclick="openSeriesEditModal()">✏ Editar</button>
+        </div>
+        <div class="fm-tags" id="smTags"></div>
+        <div class="fm-desc" id="smDesc"></div>
+        <div class="fm-avg-row">
+          <div class="fm-avg-stars" id="smAvgStars"></div>
+          <div class="fm-avg-num" id="smAvgNum"></div>
+          <div class="fm-avg-count" id="smAvgCount"></div>
+        </div>
+        <div style="margin-top:10px;">
+          <button class="btn-add-review" style="background:var(--accent2);" onclick="togglePanel('generalReviewPanel')">💬 Opiniões da Série</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GENERAL REVIEWS PANEL -->
+    <div id="generalReviewPanel" style="display:none;padding:0 24px 12px;border-bottom:1px solid var(--border);">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <span style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);">💬 Opiniões Gerais da Série</span>
+        <button class="btn-add-review" style="background:var(--accent2);" onclick="toggleReviewForm('seriesReviewFormGeneral')">+ Adicionar</button>
+      </div>
+      <div class="add-review-form" id="seriesReviewFormGeneral">
+        <div class="review-form-row">
+          <div class="form-group" style="margin:0"><label class="form-label">Nome</label><input class="form-input" id="srvNameGeneral" placeholder="Ex: João"></div>
+          <div class="form-group" style="margin:0"><label class="form-label">Data</label><input class="form-input" id="srvDateGeneral" type="date"></div>
+        </div>
+        <div class="form-group" style="margin:8px 0 10px;">
+          <label class="form-label">Nota da Série</label>
+          <div class="review-star-picker" id="srvStarsGeneral">
+            <span class="review-star-btn" onclick="setSrvStar('general',1)">★</span><span class="review-star-btn" onclick="setSrvStar('general',2)">★</span><span class="review-star-btn" onclick="setSrvStar('general',3)">★</span><span class="review-star-btn" onclick="setSrvStar('general',4)">★</span><span class="review-star-btn" onclick="setSrvStar('general',5)">★</span>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:10px;"><label class="form-label">Opinião</label><textarea class="form-textarea" id="srvTextGeneral" placeholder="O que achaste da série em geral?" style="min-height:70px;"></textarea></div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn-submit" style="margin:0;" onclick="submitSeriesReview('general')">Guardar</button>
+          <button class="btn-cancel" style="margin:0;width:auto;padding:9px 18px;" onclick="toggleReviewForm('seriesReviewFormGeneral')">Cancelar</button>
+        </div>
+      </div>
+      <div class="review-list" id="generalReviewList"></div>
+    </div>
+
+    <!-- SEASON TABS -->
+    <div class="sm-seasons-bar" id="smSeasonsBar"></div>
+
+    <!-- SEASON REVIEWS -->
+    <div id="seasonReviewArea" style="padding:10px 24px 0;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <span id="seasonReviewLabel" style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);">💬 Opiniões da Temporada</span>
+        <button class="btn-add-review" style="background:var(--green);color:var(--bg);" onclick="toggleReviewForm('seriesReviewFormSeason')">+ Adicionar</button>
+      </div>
+      <div class="add-review-form" id="seriesReviewFormSeason">
+        <div class="review-form-row">
+          <div class="form-group" style="margin:0"><label class="form-label">Nome</label><input class="form-input" id="srvNameSeason" placeholder="Ex: João"></div>
+          <div class="form-group" style="margin:0"><label class="form-label">Data</label><input class="form-input" id="srvDateSeason" type="date"></div>
+        </div>
+        <div class="form-group" style="margin:8px 0 10px;">
+          <label class="form-label">Nota da Temporada</label>
+          <div class="review-star-picker" id="srvStarsSeason">
+            <span class="review-star-btn" onclick="setSrvStar('season',1)">★</span><span class="review-star-btn" onclick="setSrvStar('season',2)">★</span><span class="review-star-btn" onclick="setSrvStar('season',3)">★</span><span class="review-star-btn" onclick="setSrvStar('season',4)">★</span><span class="review-star-btn" onclick="setSrvStar('season',5)">★</span>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:10px;"><label class="form-label">Opinião</label><textarea class="form-textarea" id="srvTextSeason" placeholder="O que achaste desta temporada?" style="min-height:70px;"></textarea></div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn-submit" style="margin:0;" onclick="submitSeriesReview('season')">Guardar</button>
+          <button class="btn-cancel" style="margin:0;width:auto;padding:9px 18px;" onclick="toggleReviewForm('seriesReviewFormSeason')">Cancelar</button>
+        </div>
+      </div>
+      <div class="review-list" id="seasonReviewList"></div>
+    </div>
+
+    <!-- EPISODE LIST -->
+    <div class="ep-list" id="smEpList"></div>
+
+    <!-- EPISODE DETAIL PANEL -->
+    <div class="ep-detail-panel" id="epDetailPanel">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+        <div class="ep-detail-title" id="epDetailTitle"></div>
+        <button class="fm-close" style="position:static;width:24px;height:24px;" onclick="closeEpPanel()">✕</button>
+      </div>
+      <div class="ep-detail-desc" id="epDetailDesc"></div>
+      <div class="ep-detail-avg">
+        <div class="ep-detail-avg-stars" id="epAvgStars"></div>
+        <div class="ep-detail-avg-num" id="epAvgNum"></div>
+        <div class="ep-detail-avg-ct" id="epAvgCt"></div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <span style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);">💬 Opiniões do Episódio</span>
+        <button class="btn-add-review" onclick="toggleReviewForm('seriesReviewFormEpisode')">+ Adicionar</button>
+      </div>
+      <div class="add-review-form" id="seriesReviewFormEpisode">
+        <div class="review-form-row">
+          <div class="form-group" style="margin:0"><label class="form-label">Nome</label><input class="form-input" id="srvNameEp" placeholder="Ex: João"></div>
+          <div class="form-group" style="margin:0"><label class="form-label">Data Vista</label><input class="form-input" id="srvDateEp" type="date"></div>
+        </div>
+        <div class="form-group" style="margin:8px 0 10px;">
+          <label class="form-label">Nota do Episódio</label>
+          <div class="review-star-picker" id="srvStarsEp">
+            <span class="review-star-btn" onclick="setSrvStar('episode',1)">★</span><span class="review-star-btn" onclick="setSrvStar('episode',2)">★</span><span class="review-star-btn" onclick="setSrvStar('episode',3)">★</span><span class="review-star-btn" onclick="setSrvStar('episode',4)">★</span><span class="review-star-btn" onclick="setSrvStar('episode',5)">★</span>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:10px;"><label class="form-label">Opinião</label><textarea class="form-textarea" id="srvTextEp" placeholder="O que achaste deste episódio?" style="min-height:70px;"></textarea></div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn-submit" style="margin:0;" onclick="submitSeriesReview('episode')">Guardar</button>
+          <button class="btn-cancel" style="margin:0;width:auto;padding:9px 18px;" onclick="toggleReviewForm('seriesReviewFormEpisode')">Cancelar</button>
+        </div>
+      </div>
+      <div class="review-list" id="epReviewList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ ADD/EDIT SERIES MODAL ═══════ -->
+<div class="modal-overlay" id="addSeriesModal">
+  <div class="add-modal">
+    <button class="fm-close" onclick="closeModal('addSeriesModal')">✕</button>
+    <div class="add-title" id="addSeriesTitle">+ Nova Série</div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Título</label><input class="form-input" id="sfTitle" placeholder="Ex: Breaking Bad"></div>
+      <div class="form-group"><label class="form-label">Ano</label><input class="form-input" id="sfYear" type="number" placeholder="2008"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Género</label>
+        <select class="form-select" id="sfGenre"><option>Drama</option><option>Ficção Científica</option><option>Crime</option><option>Comédia</option><option>Terror</option><option>Fantasia</option><option>Ação</option><option>Mistério</option></select>
+      </div>
+      <div class="form-group"><label class="form-label">Estado</label>
+        <select class="form-select" id="sfStatus"><option value="a-ver">A ver agora</option><option value="concluida">Concluída</option><option value="pausada">Pausada</option><option value="para-ver">Para ver</option></select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Nº de Temporadas</label><input class="form-input" id="sfSeasons" type="number" value="1" min="1"></div>
+      <div class="form-group"><label class="form-label">Eps por Temporada</label><input class="form-input" id="sfEpsPerSeason" type="number" value="8" min="1"></div>
+    </div>
+    <div class="form-group"><label class="form-label">URL do Poster</label><input class="form-input" id="sfPoster" placeholder="https://..."></div>
+    <div class="form-group"><label class="form-label">Link IMDb</label><input class="form-input" id="sfImdb" placeholder="https://www.imdb.com/title/tt..."></div>
+    <div class="form-group"><label class="form-label">Descrição</label><textarea class="form-textarea" id="sfDesc" placeholder="Sinopse da série..."></textarea></div>
+    <button class="btn-submit" id="sfSubmitBtn" onclick="submitSeries()">Adicionar Série</button>
+  </div>
+</div>
+
+
+
 <script>
 const PH = t=>`https://placehold.co/200x300/161820/4cc9f0?font=raleway&text=${encodeURIComponent(t.substring(0,10))}`;
 function starsHTML(n,t=5){return '★'.repeat(Math.max(0,n))+'☆'.repeat(Math.max(0,t-n));}
@@ -1718,240 +1949,13 @@ function submitSeries(){
 }
 
 // ── INIT ──────────────────────────────────────────────
-buildFeatured();
-buildHomeGrid('grid-lista',movies,'lista');
-buildHomeGrid('grid-lancamentos',releases,'lancamentos');
-buildAwards();
-updateSidebarCounts();
+document.addEventListener('DOMContentLoaded',function(){
+  buildFeatured();
+  buildHomeGrid('grid-lista',movies,'lista');
+  buildHomeGrid('grid-lancamentos',releases,'lancamentos');
+  buildAwards();
+  updateSidebarCounts();
+});
 </script>
-
-<!-- ═══════ SERIES HOME PAGE ═══════ -->
-<div class="page" id="page-series-home">
-  <div class="top-section" id="topSectionSeries"></div>
-  <div class="tabs-section">
-    <div class="tabs-bar">
-      <button class="tab-btn active" onclick="switchSeriesTab('emissao',this)">📡 Em Emissão</button>
-      <button class="tab-btn" onclick="switchSeriesTab('lista',this)">📺 A Minha Lista</button>
-      <button class="tab-btn" onclick="switchSeriesTab('premiacoes',this)">🏆 Premiações</button>
-    </div>
-    <div class="tab-content active" id="stab-content-emissao"><div class="movies-grid" id="grid-series-emissao"></div></div>
-    <div class="tab-content" id="stab-content-lista"><div class="movies-grid" id="grid-series-lista"></div></div>
-    <div class="tab-content" id="stab-content-premiacoes"><div class="awards-grid" id="grid-series-premiacoes"></div></div>
-  </div>
-</div>
-
-<!-- ═══════ SERIES BROWSE PAGE ═══════ -->
-<div class="page" id="page-series-browse" style="flex-direction:column;">
-  <div class="browse-header">
-    <button class="browse-back" onclick="goSeriesHome()">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Voltar
-    </button>
-    <span class="browse-title">Todas as Séries</span>
-    <span class="browse-count" id="seriesBrowseCount"></span>
-  </div>
-  <div class="browse-search-row">
-    <div class="browse-input-wrap">
-      <span class="browse-input-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
-      <input class="browse-search" id="seriesBrowseInput" placeholder="Pesquisar por título..." autocomplete="off">
-    </div>
-    <select class="sort-select" onchange="setSeriesSort(this.value)">
-      <option value="title">Título A–Z</option>
-      <option value="rating">Classificação</option>
-      <option value="year">Ano</option>
-    </select>
-  </div>
-  <div class="browse-layout">
-    <aside class="browse-sidebar">
-      <div class="sb-section">
-        <span class="sb-title">Estatísticas</span>
-        <div class="stat-mini-grid">
-          <div class="stat-mini"><span class="stat-mini-num" id="sStatTotal">0</span><span class="stat-mini-lbl">Séries</span></div>
-          <div class="stat-mini"><span class="stat-mini-num" style="color:var(--gold)" id="sStatAvg">—</span><span class="stat-mini-lbl">Média ⭐</span></div>
-        </div>
-      </div>
-      <div class="sb-divider"></div>
-      <div class="sb-section">
-        <span class="sb-title">Género</span>
-        <div class="sb-row active" data-st="genre" data-sv="Todos" onclick="setSeriesSF(this,'genre')">Todos <span class="fc" id="sfc-todos">0</span></div>
-        <div class="sb-row" data-st="genre" data-sv="Drama" onclick="setSeriesSF(this,'genre')">Drama <span class="fc" id="sfc-drama">0</span></div>
-        <div class="sb-row" data-st="genre" data-sv="Ficção Científica" onclick="setSeriesSF(this,'genre')">Ficção Científica <span class="fc" id="sfc-fic">0</span></div>
-        <div class="sb-row" data-st="genre" data-sv="Crime" onclick="setSeriesSF(this,'genre')">Crime <span class="fc" id="sfc-crime">0</span></div>
-        <div class="sb-row" data-st="genre" data-sv="Comédia" onclick="setSeriesSF(this,'genre')">Comédia <span class="fc" id="sfc-com">0</span></div>
-        <div class="sb-row" data-st="genre" data-sv="Terror" onclick="setSeriesSF(this,'genre')">Terror <span class="fc" id="sfc-ter">0</span></div>
-        <div class="sb-row" data-st="genre" data-sv="Fantasia" onclick="setSeriesSF(this,'genre')">Fantasia <span class="fc" id="sfc-fan">0</span></div>
-        <div class="sb-row" data-st="genre" data-sv="Ação" onclick="setSeriesSF(this,'genre')">Ação <span class="fc" id="sfc-acao">0</span></div>
-      </div>
-      <div class="sb-divider"></div>
-      <div class="sb-section">
-        <span class="sb-title">Estado</span>
-        <div class="sb-row" data-st="status" data-sv="a-ver" onclick="setSeriesSF(this,'status')">A ver agora</div>
-        <div class="sb-row" data-st="status" data-sv="concluida" onclick="setSeriesSF(this,'status')">Concluída</div>
-        <div class="sb-row" data-st="status" data-sv="pausada" onclick="setSeriesSF(this,'status')">Pausada</div>
-      </div>
-    </aside>
-    <div class="browse-grid-area">
-      <div class="active-tags" id="seriesActiveTags"></div>
-      <div class="browse-grid" id="seriesBrowseGrid"></div>
-      <div class="sentinel" id="seriesSentinel"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════ SERIES DETAIL MODAL ═══════ -->
-<div class="modal-overlay" id="seriesModal">
-  <div class="series-modal">
-    <button class="fm-close" onclick="closeModal('seriesModal')">✕</button>
-    <div class="fm-top">
-      <div class="fm-poster">
-        <img id="smImg" src="" alt="" style="min-height:300px;">
-        <div class="fm-poster-actions">
-          <a id="smImdb" href="#" target="_blank" class="fm-imdb" style="display:none;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>IMDb
-          </a>
-        </div>
-      </div>
-      <div class="fm-info">
-        <div class="fm-title-row">
-          <div class="fm-title" id="smTitle"></div>
-          <button class="fm-edit-btn" id="smEditBtn" onclick="openSeriesEditModal()">✏ Editar</button>
-        </div>
-        <div class="fm-tags" id="smTags"></div>
-        <div class="fm-desc" id="smDesc"></div>
-        <div class="fm-avg-row">
-          <div class="fm-avg-stars" id="smAvgStars"></div>
-          <div class="fm-avg-num" id="smAvgNum"></div>
-          <div class="fm-avg-count" id="smAvgCount"></div>
-        </div>
-        <div style="margin-top:10px;">
-          <button class="btn-add-review" style="background:var(--accent2);" onclick="togglePanel('generalReviewPanel')">💬 Opiniões da Série</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- GENERAL REVIEWS PANEL -->
-    <div id="generalReviewPanel" style="display:none;padding:0 24px 12px;border-bottom:1px solid var(--border);">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-        <span style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);">💬 Opiniões Gerais da Série</span>
-        <button class="btn-add-review" style="background:var(--accent2);" onclick="toggleReviewForm('seriesReviewFormGeneral')">+ Adicionar</button>
-      </div>
-      <div class="add-review-form" id="seriesReviewFormGeneral">
-        <div class="review-form-row">
-          <div class="form-group" style="margin:0"><label class="form-label">Nome</label><input class="form-input" id="srvNameGeneral" placeholder="Ex: João"></div>
-          <div class="form-group" style="margin:0"><label class="form-label">Data</label><input class="form-input" id="srvDateGeneral" type="date"></div>
-        </div>
-        <div class="form-group" style="margin:8px 0 10px;">
-          <label class="form-label">Nota da Série</label>
-          <div class="review-star-picker" id="srvStarsGeneral">
-            <span class="review-star-btn" onclick="setSrvStar('general',1)">★</span><span class="review-star-btn" onclick="setSrvStar('general',2)">★</span><span class="review-star-btn" onclick="setSrvStar('general',3)">★</span><span class="review-star-btn" onclick="setSrvStar('general',4)">★</span><span class="review-star-btn" onclick="setSrvStar('general',5)">★</span>
-          </div>
-        </div>
-        <div class="form-group" style="margin-bottom:10px;"><label class="form-label">Opinião</label><textarea class="form-textarea" id="srvTextGeneral" placeholder="O que achaste da série em geral?" style="min-height:70px;"></textarea></div>
-        <div style="display:flex;gap:8px;">
-          <button class="btn-submit" style="margin:0;" onclick="submitSeriesReview('general')">Guardar</button>
-          <button class="btn-cancel" style="margin:0;width:auto;padding:9px 18px;" onclick="toggleReviewForm('seriesReviewFormGeneral')">Cancelar</button>
-        </div>
-      </div>
-      <div class="review-list" id="generalReviewList"></div>
-    </div>
-
-    <!-- SEASON TABS -->
-    <div class="sm-seasons-bar" id="smSeasonsBar"></div>
-
-    <!-- SEASON REVIEWS -->
-    <div id="seasonReviewArea" style="padding:10px 24px 0;">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
-        <span id="seasonReviewLabel" style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);">💬 Opiniões da Temporada</span>
-        <button class="btn-add-review" style="background:var(--green);color:var(--bg);" onclick="toggleReviewForm('seriesReviewFormSeason')">+ Adicionar</button>
-      </div>
-      <div class="add-review-form" id="seriesReviewFormSeason">
-        <div class="review-form-row">
-          <div class="form-group" style="margin:0"><label class="form-label">Nome</label><input class="form-input" id="srvNameSeason" placeholder="Ex: João"></div>
-          <div class="form-group" style="margin:0"><label class="form-label">Data</label><input class="form-input" id="srvDateSeason" type="date"></div>
-        </div>
-        <div class="form-group" style="margin:8px 0 10px;">
-          <label class="form-label">Nota da Temporada</label>
-          <div class="review-star-picker" id="srvStarsSeason">
-            <span class="review-star-btn" onclick="setSrvStar('season',1)">★</span><span class="review-star-btn" onclick="setSrvStar('season',2)">★</span><span class="review-star-btn" onclick="setSrvStar('season',3)">★</span><span class="review-star-btn" onclick="setSrvStar('season',4)">★</span><span class="review-star-btn" onclick="setSrvStar('season',5)">★</span>
-          </div>
-        </div>
-        <div class="form-group" style="margin-bottom:10px;"><label class="form-label">Opinião</label><textarea class="form-textarea" id="srvTextSeason" placeholder="O que achaste desta temporada?" style="min-height:70px;"></textarea></div>
-        <div style="display:flex;gap:8px;">
-          <button class="btn-submit" style="margin:0;" onclick="submitSeriesReview('season')">Guardar</button>
-          <button class="btn-cancel" style="margin:0;width:auto;padding:9px 18px;" onclick="toggleReviewForm('seriesReviewFormSeason')">Cancelar</button>
-        </div>
-      </div>
-      <div class="review-list" id="seasonReviewList"></div>
-    </div>
-
-    <!-- EPISODE LIST -->
-    <div class="ep-list" id="smEpList"></div>
-
-    <!-- EPISODE DETAIL PANEL -->
-    <div class="ep-detail-panel" id="epDetailPanel">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
-        <div class="ep-detail-title" id="epDetailTitle"></div>
-        <button class="fm-close" style="position:static;width:24px;height:24px;" onclick="closeEpPanel()">✕</button>
-      </div>
-      <div class="ep-detail-desc" id="epDetailDesc"></div>
-      <div class="ep-detail-avg">
-        <div class="ep-detail-avg-stars" id="epAvgStars"></div>
-        <div class="ep-detail-avg-num" id="epAvgNum"></div>
-        <div class="ep-detail-avg-ct" id="epAvgCt"></div>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-        <span style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);">💬 Opiniões do Episódio</span>
-        <button class="btn-add-review" onclick="toggleReviewForm('seriesReviewFormEpisode')">+ Adicionar</button>
-      </div>
-      <div class="add-review-form" id="seriesReviewFormEpisode">
-        <div class="review-form-row">
-          <div class="form-group" style="margin:0"><label class="form-label">Nome</label><input class="form-input" id="srvNameEp" placeholder="Ex: João"></div>
-          <div class="form-group" style="margin:0"><label class="form-label">Data Vista</label><input class="form-input" id="srvDateEp" type="date"></div>
-        </div>
-        <div class="form-group" style="margin:8px 0 10px;">
-          <label class="form-label">Nota do Episódio</label>
-          <div class="review-star-picker" id="srvStarsEp">
-            <span class="review-star-btn" onclick="setSrvStar('episode',1)">★</span><span class="review-star-btn" onclick="setSrvStar('episode',2)">★</span><span class="review-star-btn" onclick="setSrvStar('episode',3)">★</span><span class="review-star-btn" onclick="setSrvStar('episode',4)">★</span><span class="review-star-btn" onclick="setSrvStar('episode',5)">★</span>
-          </div>
-        </div>
-        <div class="form-group" style="margin-bottom:10px;"><label class="form-label">Opinião</label><textarea class="form-textarea" id="srvTextEp" placeholder="O que achaste deste episódio?" style="min-height:70px;"></textarea></div>
-        <div style="display:flex;gap:8px;">
-          <button class="btn-submit" style="margin:0;" onclick="submitSeriesReview('episode')">Guardar</button>
-          <button class="btn-cancel" style="margin:0;width:auto;padding:9px 18px;" onclick="toggleReviewForm('seriesReviewFormEpisode')">Cancelar</button>
-        </div>
-      </div>
-      <div class="review-list" id="epReviewList"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════ ADD/EDIT SERIES MODAL ═══════ -->
-<div class="modal-overlay" id="addSeriesModal">
-  <div class="add-modal">
-    <button class="fm-close" onclick="closeModal('addSeriesModal')">✕</button>
-    <div class="add-title" id="addSeriesTitle">+ Nova Série</div>
-    <div class="form-row">
-      <div class="form-group"><label class="form-label">Título</label><input class="form-input" id="sfTitle" placeholder="Ex: Breaking Bad"></div>
-      <div class="form-group"><label class="form-label">Ano</label><input class="form-input" id="sfYear" type="number" placeholder="2008"></div>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label class="form-label">Género</label>
-        <select class="form-select" id="sfGenre"><option>Drama</option><option>Ficção Científica</option><option>Crime</option><option>Comédia</option><option>Terror</option><option>Fantasia</option><option>Ação</option><option>Mistério</option></select>
-      </div>
-      <div class="form-group"><label class="form-label">Estado</label>
-        <select class="form-select" id="sfStatus"><option value="a-ver">A ver agora</option><option value="concluida">Concluída</option><option value="pausada">Pausada</option><option value="para-ver">Para ver</option></select>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label class="form-label">Nº de Temporadas</label><input class="form-input" id="sfSeasons" type="number" value="1" min="1"></div>
-      <div class="form-group"><label class="form-label">Eps por Temporada</label><input class="form-input" id="sfEpsPerSeason" type="number" value="8" min="1"></div>
-    </div>
-    <div class="form-group"><label class="form-label">URL do Poster</label><input class="form-input" id="sfPoster" placeholder="https://..."></div>
-    <div class="form-group"><label class="form-label">Link IMDb</label><input class="form-input" id="sfImdb" placeholder="https://www.imdb.com/title/tt..."></div>
-    <div class="form-group"><label class="form-label">Descrição</label><textarea class="form-textarea" id="sfDesc" placeholder="Sinopse da série..."></textarea></div>
-    <button class="btn-submit" id="sfSubmitBtn" onclick="submitSeries()">Adicionar Série</button>
-  </div>
-</div>
-
 </body>
 </html>
