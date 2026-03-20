@@ -15,7 +15,7 @@
 body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;min-height:100vh;overflow-x:hidden;}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.3;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");}
-
+ 
 /* NAV */
 nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--border);height:56px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
@@ -29,11 +29,11 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .btn-search:hover{border-color:var(--accent);color:var(--text);}
 .btn-add{background:var(--accent);color:var(--bg);border:none;border-radius:4px;padding:7px 16px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
 .btn-add:hover{background:#74d9f7;}
-
+ 
 /* PAGES */
 .page{display:none;}.page.active{display:block;}
 #page-browse.active{display:flex;flex-direction:column;}
-
+ 
 /* ── HOME ── */
 .top-section{display:flex;gap:6px;padding:20px 32px 0;height:360px;align-items:stretch;}
 .featured-wrap{flex:0 0 200px;position:relative;border-radius:6px;overflow:hidden;cursor:pointer;border:1px solid var(--border);transition:border-color 0.2s;}
@@ -61,12 +61,12 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .now-badge{position:absolute;top:12px;left:12px;background:rgba(6,214,160,0.15);border:1px solid var(--green);color:var(--green);font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:2px;font-weight:700;display:flex;align-items:center;gap:5px;}
 .now-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 1.5s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-
+ 
 /* VER TODOS BAR */
 .ver-todos-bar{padding:14px 32px 0;display:flex;justify-content:flex-end;}
 .btn-ver-todos{background:none;border:1px solid var(--border);color:var(--text-dim);font-family:'Rajdhani',sans-serif;font-size:0.78rem;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:3px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
 .btn-ver-todos:hover{border-color:var(--accent);color:var(--accent);}
-
+ 
 /* TABS */
 .tabs-section{padding:16px 32px 40px;}
 .tabs-bar{display:flex;align-items:center;border-bottom:1px solid var(--border);margin-bottom:24px;}
@@ -74,7 +74,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .tab-btn:hover{color:var(--text);}
 .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
 .tab-content{display:none;}.tab-content.active{display:block;}
-
+ 
 /* MOVIE CARDS */
 .movies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:18px;}
 .movie-card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;cursor:pointer;transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s;animation:fadeUp 0.35s ease both;}
@@ -94,7 +94,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .card-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:var(--text-dim);}
 .card-genre{background:var(--bg4);padding:2px 6px;border-radius:2px;font-size:0.68rem;}
 .stars{color:var(--gold);font-size:0.72rem;}
-
+ 
 /* AWARDS */
 .awards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
 .award-card{background:var(--bg2);border:1px solid rgba(255,209,102,0.2);border-radius:6px;padding:18px 20px;display:flex;gap:16px;align-items:center;transition:border-color 0.2s,transform 0.2s;}
@@ -103,7 +103,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .award-name{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
 .award-film{font-size:1rem;font-weight:700;margin-bottom:2px;}
 .award-cat{font-size:0.8rem;color:var(--text-dim);font-family:'Crimson Pro',serif;font-style:italic;}
-
+ 
 /* BROWSE PAGE */
 .browse-header{padding:20px 32px 16px;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--border);}
 .browse-back{background:none;border:none;color:var(--text-dim);cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
@@ -148,12 +148,12 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .loader-dots span:nth-child(3){animation-delay:0.4s;}
 @keyframes dotP{0%,100%{opacity:0.3;transform:scale(1);}50%{opacity:1;transform:scale(1.3);}}
 .no-more-text{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);}
-
+ 
 /* ── DETAIL MODAL ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(8px);z-index:600;align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;}
 @keyframes mIn{from{opacity:0;transform:scale(0.96) translateY(8px);}to{opacity:1;transform:scale(1) translateY(0);}}
-
+ 
 /* FILM DETAIL MODAL - wide */
 .film-modal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;width:860px;max-width:96vw;max-height:90vh;overflow-y:auto;animation:mIn 0.22s ease;position:relative;display:flex;flex-direction:column;}
 .fm-top{display:flex;gap:0;}
@@ -179,7 +179,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .fm-avg-count{font-size:0.8rem;color:var(--text-dim);}
 .fm-close{position:absolute;top:12px;right:12px;background:var(--bg4);border:1px solid var(--border);color:var(--text-dim);width:28px;height:28px;border-radius:4px;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;transition:color 0.2s;z-index:10;}
 .fm-close:hover{color:var(--text);}
-
+ 
 /* REVIEWS SECTION */
 .fm-reviews{padding:0 24px 24px;}
 .fm-reviews-title{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;}
@@ -195,7 +195,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .review-text{font-family:'Crimson Pro',serif;font-size:0.98rem;line-height:1.65;color:rgba(232,234,240,0.82);}
 .review-del{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:0.8rem;padding:2px 6px;border-radius:2px;transition:color 0.2s;}
 .review-del:hover{color:var(--accent2);}
-
+ 
 /* ADD REVIEW FORM */
 .add-review-form{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:16px;display:none;}
 .add-review-form.open{display:block;}
@@ -204,11 +204,11 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .review-star-btn{font-size:1.2rem;cursor:pointer;opacity:0.3;transition:transform 0.1s,opacity 0.1s;color:var(--gold);}
 .review-star-btn.lit{opacity:1;}
 .review-star-btn:hover{transform:scale(1.2);}
-
+ 
 /* EDIT MODAL */
 .edit-modal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;width:500px;max-width:95vw;padding:28px;animation:mIn 0.22s ease;position:relative;max-height:90vh;overflow-y:auto;}
 .edit-title{font-size:1.1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px;color:var(--accent);}
-
+ 
 /* ADD FILM MODAL */
 .add-modal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;width:500px;max-width:95vw;padding:28px;animation:mIn 0.22s ease;position:relative;max-height:90vh;overflow-y:auto;}
 .add-title{font-size:1.1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px;color:var(--accent);}
@@ -223,12 +223,12 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .btn-submit:hover{background:#74d9f7;}
 .btn-cancel{width:100%;background:none;color:var(--text-dim);border:1px solid var(--border);border-radius:4px;padding:9px;font-family:'Rajdhani',sans-serif;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:6px;transition:all 0.2s;}
 .btn-cancel:hover{border-color:var(--accent2);color:var(--accent2);}
-
+ 
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--accent);}
-
+ 
 /* ── SPLASH SCREEN ── */
 #splash{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity 0.5s ease;}
 #splash.hiding{opacity:0;pointer-events:none;}
@@ -254,34 +254,34 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 /* mode indicator in nav */
 .mode-badge{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:3px 10px;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
 .mode-badge:hover{border-color:var(--accent);color:var(--accent);}
-
+ 
 /* ── MODE SWITCHER ── */
 .mode-switcher{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
 .mode-btn{background:none;border:none;color:var(--text-dim);font-family:'Rajdhani',sans-serif;font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;cursor:pointer;transition:all 0.15s;}
 .mode-btn.active{background:var(--accent);color:var(--bg);font-weight:700;}
 .mode-btn.series-active{background:var(--accent2);}
-
+ 
 /* ── SERIES HOME ── */
 #page-series-home{display:none;}
 #page-series-home.active{display:block;}
 #page-series-browse{display:none;}
 #page-series-browse.active{display:flex;flex-direction:column;}
-
+ 
 /* SERIES CARD */
 .series-card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;cursor:pointer;transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s;animation:fadeUp 0.35s ease both;}
 .series-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,0,0,0.5),0 0 0 1px rgba(247,37,133,0.22);border-color:rgba(247,37,133,0.28);}
 .series-card .seen-badge{background:var(--accent2);}
 .ep-badge{position:absolute;top:8px;left:8px;background:rgba(14,15,19,0.85);border:1px solid var(--border);color:var(--text-dim);font-size:0.58rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:2px;}
-
+ 
 /* ── SERIES DETAIL MODAL ── */
 .series-modal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;width:960px;max-width:97vw;max-height:92vh;overflow-y:auto;animation:mIn 0.22s ease;position:relative;display:flex;flex-direction:column;}
-
+ 
 /* Season tabs */
 .sm-seasons-bar{display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 24px;overflow-x:auto;}
 .sm-season-btn{background:none;border:none;color:var(--text-dim);font-family:'Rajdhani',sans-serif;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;padding:10px 18px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:color 0.2s,border-color 0.2s;flex-shrink:0;}
 .sm-season-btn:hover{color:var(--text);}
 .sm-season-btn.active{color:var(--accent2);border-bottom-color:var(--accent2);}
-
+ 
 /* Episodes list */
 .ep-list{display:flex;flex-direction:column;gap:2px;padding:16px 24px;}
 .ep-row{display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:4px;background:var(--bg3);border:1px solid transparent;cursor:pointer;transition:border-color 0.15s,background 0.15s;}
@@ -293,7 +293,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .ep-review-count{font-size:0.7rem;color:var(--text-dim);flex-shrink:0;}
 .ep-add-btn{background:none;border:1px solid var(--border);color:var(--text-dim);font-family:'Rajdhani',sans-serif;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:2px;cursor:pointer;flex-shrink:0;transition:all 0.15s;}
 .ep-add-btn:hover{border-color:var(--accent2);color:var(--accent2);}
-
+ 
 /* Episode detail panel */
 .ep-detail-panel{background:var(--bg3);border:1px solid var(--border);border-radius:5px;margin:0 24px 20px;padding:18px;display:none;}
 .ep-detail-panel.open{display:block;}
@@ -303,23 +303,23 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .ep-detail-avg-stars{color:var(--gold);font-size:1rem;}
 .ep-detail-avg-num{font-size:0.9rem;font-weight:700;color:var(--gold);}
 .ep-detail-avg-ct{font-size:0.75rem;color:var(--text-dim);}
-
+ 
 /* Season & general review tabs */
 .review-scope-tabs{display:flex;gap:6px;margin-bottom:14px;}
 .scope-tab{background:var(--bg4);border:1px solid var(--border);color:var(--text-dim);font-family:'Rajdhani',sans-serif;font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:3px;cursor:pointer;transition:all 0.15s;}
 .scope-tab:hover{color:var(--text);}
 .scope-tab.active{background:rgba(247,37,133,0.12);border-color:var(--accent2);color:var(--accent2);}
-
+ 
 /* review scope label */
 .review-scope-label{font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;padding:2px 7px;border-radius:2px;margin-left:6px;font-weight:700;}
 .scope-ep{background:rgba(76,201,240,0.15);color:var(--accent);}
 .scope-season{background:rgba(6,214,160,0.15);color:var(--green);}
 .scope-general{background:rgba(247,37,133,0.15);color:var(--accent2);}
-
+ 
 </style>
 </head>
 <body>
-
+ 
 <!-- ═══════ SPLASH ═══════ -->
 <div id="splash">
   <div class="splash-logo">Cine<span>Gasm</span></div>
@@ -339,7 +339,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     </div>
   </div>
 </div>
-
+ 
 <!-- NAV -->
 <nav>
   <div class="logo" onclick="goHome()">Cine<span>Gasm</span></div>
@@ -360,11 +360,11 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     <button class="btn-add" id="btnAddMain" onclick="onAddClick()">+ Adicionar</button>
   </div>
 </nav>
-
+ 
 <!-- ═══════ HOME PAGE ═══════ -->
 <div class="page active" id="page-home">
   <div class="top-section" id="topSection"></div>
-
+ 
   <div class="tabs-section">
     <div class="tabs-bar">
       <button class="tab-btn active" onclick="switchTab('lancamentos',this)">🔥 Lançamentos</button>
@@ -376,7 +376,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     <div class="tab-content" id="tab-premiacoes"><div class="awards-grid" id="grid-premiacoes"></div></div>
   </div>
 </div>
-
+ 
 <!-- ═══════ BROWSE PAGE ═══════ -->
 <div class="page" id="page-browse">
   <div class="browse-header">
@@ -445,7 +445,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     </div>
   </div>
 </div>
-
+ 
 <!-- ═══════ FILM DETAIL MODAL ═══════ -->
 <div class="modal-overlay" id="filmModal">
   <div class="film-modal" id="filmModalInner">
@@ -516,7 +516,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     </div>
   </div>
 </div>
-
+ 
 <!-- ═══════ EDIT MODAL ═══════ -->
 <div class="modal-overlay" id="editModal">
   <div class="edit-modal">
@@ -543,7 +543,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     <button class="btn-cancel" onclick="closeModal('editModal')">Cancelar</button>
   </div>
 </div>
-
+ 
 <!-- ═══════ ADD FILM MODAL ═══════ -->
 <div class="modal-overlay" id="addModal">
   <div class="add-modal">
@@ -569,8 +569,8 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     <button class="btn-submit" onclick="addMovie()">Adicionar Filme</button>
   </div>
 </div>
-
-
+ 
+ 
 <!-- ═══════ SERIES HOME PAGE ═══════ -->
 <div class="page" id="page-series-home">
   <div class="top-section" id="topSectionSeries"></div>
@@ -585,7 +585,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     <div class="tab-content" id="stab-content-premiacoes"><div class="awards-grid" id="grid-series-premiacoes"></div></div>
   </div>
 </div>
-
+ 
 <!-- ═══════ SERIES BROWSE PAGE ═══════ -->
 <div class="page" id="page-series-browse" style="flex-direction:column;">
   <div class="browse-header">
@@ -643,7 +643,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     </div>
   </div>
 </div>
-
+ 
 <!-- ═══════ SERIES DETAIL MODAL ═══════ -->
 <div class="modal-overlay" id="seriesModal">
   <div class="series-modal">
@@ -674,7 +674,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
         </div>
       </div>
     </div>
-
+ 
     <!-- GENERAL REVIEWS PANEL -->
     <div id="generalReviewPanel" style="display:none;padding:0 24px 12px;border-bottom:1px solid var(--border);">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
@@ -700,10 +700,10 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
       </div>
       <div class="review-list" id="generalReviewList"></div>
     </div>
-
+ 
     <!-- SEASON TABS -->
     <div class="sm-seasons-bar" id="smSeasonsBar"></div>
-
+ 
     <!-- SEASON REVIEWS -->
     <div id="seasonReviewArea" style="padding:10px 24px 0;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
@@ -729,10 +729,10 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
       </div>
       <div class="review-list" id="seasonReviewList"></div>
     </div>
-
+ 
     <!-- EPISODE LIST -->
     <div class="ep-list" id="smEpList"></div>
-
+ 
     <!-- EPISODE DETAIL PANEL -->
     <div class="ep-detail-panel" id="epDetailPanel">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
@@ -770,7 +770,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     </div>
   </div>
 </div>
-
+ 
 <!-- ═══════ ADD/EDIT SERIES MODAL ═══════ -->
 <div class="modal-overlay" id="addSeriesModal">
   <div class="add-modal">
@@ -798,14 +798,14 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
     <button class="btn-submit" id="sfSubmitBtn" onclick="submitSeries()">Adicionar Série</button>
   </div>
 </div>
-
-
-
+ 
+ 
+ 
 <script>
 const PH = t=>`https://placehold.co/200x300/161820/4cc9f0?font=raleway&text=${encodeURIComponent(t.substring(0,10))}`;
 function starsHTML(n,t=5){return '★'.repeat(Math.max(0,n))+'☆'.repeat(Math.max(0,t-n));}
 function fmtDate(raw){const d=new Date(raw);return isNaN(d)?raw:d.toLocaleDateString('pt-PT',{day:'2-digit',month:'short',year:'numeric'});}
-
+ 
 // ── DATA ──────────────────────────────────────────────
 let movies = [
   {id:1,title:'Dune: Part Two',year:2024,genre:'Ficção Científica',date:'2024-02-15',poster:'https://www.themoviedb.org/t/p/w342/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg',imdb:'https://www.imdb.com/title/tt15239678/',desc:'A continuação épica da saga de Paul Atreides, que se une aos Fremen enquanto busca vingança contra os conspiradores que destruíram a sua família.',reviews:[{id:1,name:'João',stars:5,date:'15 Fev 2024',text:'Uma epopeia visual deslumbrante. Villeneuve no auge absoluto da carreira.'},{id:2,name:'Ana',stars:4,date:'20 Fev 2024',text:'Zendaya finalmente tem espaço para brilhar. Visualmente incomparável.'}]},
@@ -821,7 +821,7 @@ let movies = [
   {id:11,title:"Schindler's List",year:1993,genre:'Drama',date:'2024-01-25',poster:'https://www.themoviedb.org/t/p/w342/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg',imdb:'https://www.imdb.com/title/tt0108052/',desc:'Em Polónia durante a Segunda Guerra Mundial, Oskar Schindler salva a vida de mais de mil polacos judeus ao empregá-los na sua fábrica.',reviews:[{id:1,name:'João',stars:5,date:'25 Jan 2024',text:'Spielberg no pico absoluto. Nunca chorei tanto com um filme.'}]},
   {id:12,title:'Mulholland Drive',year:2001,genre:'Thriller',date:'2024-06-30',poster:'https://www.themoviedb.org/t/p/w342/5K2GbWfJ1GRPlmJR7qH6f11qYQG.jpg',imdb:'https://www.imdb.com/title/tt0166924/',desc:'Uma jovem actriz em início de carreira e uma mulher com amnésia tentam desvendar um mistério em Los Angeles.',reviews:[{id:1,name:'João',stars:4,date:'30 Jun 2024',text:'Lynch a ser Lynch. Inquietante, surreal, impossível de parar de pensar.'}]},
 ];
-
+ 
 const releases=[
   {id:20,title:'Sinners',year:2025,genre:'Terror',date:null,poster:'https://www.themoviedb.org/t/p/w342/pqQFa79nI6a3DgCEDORBQMRmUn3.jpg',imdb:'https://www.imdb.com/title/tt16078488/',desc:'Ryan Coogler regressa com um thriller de terror ambiental que mistura blues, vampiros e o Sul americano dos anos 30.',reviews:[]},
   {id:21,title:'Mission: Impossible 8',year:2025,genre:'Ação',date:null,poster:'https://www.themoviedb.org/t/p/w342/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg',imdb:'https://www.imdb.com/title/tt9603212/',desc:'A conclusão épica da saga de Ethan Hunt, que enfrenta a sua missão mais impossível de sempre.',reviews:[]},
@@ -830,7 +830,7 @@ const releases=[
   {id:24,title:'Materialists',year:2025,genre:'Drama',date:null,poster:'https://placehold.co/200x300/1e2029/ffd166?text=Materialists',imdb:'',desc:'Novo filme de Celine Song com Dakota Johnson, Pedro Pascal e Chris Evans sobre amor e compromisso.',reviews:[]},
   {id:25,title:'Predator: Badlands',year:2025,genre:'Ação',date:null,poster:'https://placehold.co/200x300/1e2029/4cc9f0?text=Predator',imdb:'',desc:'O próximo capítulo da franchise Predator, que promete expandir o universo de formas inesperadas.',reviews:[]},
 ];
-
+ 
 const awards=[
   {icon:'🏆',name:'Oscar 2024',film:'Oppenheimer',cat:'Melhor Filme — 96ª cerimónia',year:2024},
   {icon:'🥇',name:'Oscar 2024',film:'Oppenheimer',cat:'Melhor Realizador — Christopher Nolan',year:2024},
@@ -842,13 +842,13 @@ const awards=[
   {icon:'🌟',name:'Saturn Awards 2015',film:'Interstellar',cat:'Melhor Filme de Ficção Científica',year:2015},
   {icon:'🎬',name:'Oscar 2002',film:'Mulholland Drive',cat:'Nomeado — Melhor Realizador (Lynch)',year:2002},
 ];
-
+ 
 // ── STATE ─────────────────────────────────────────────
 let currentFilmId = null;
 let rvStars = 0;
 let bf = {text:'',genre:'Todos',stars:null,era:null,sort:'date'};
 const PAGE=8; let bPage=1; let bLoading=false;
-
+ 
 // ── HELPERS ───────────────────────────────────────────
 function avgStars(reviews){
   if(!reviews||!reviews.length) return null;
@@ -856,7 +856,7 @@ function avgStars(reviews){
   if(!rated.length) return null;
   return (rated.reduce((s,r)=>s+r.stars,0)/rated.length).toFixed(1);
 }
-
+ 
 function applyBF(arr){
   let r=[...arr];
   if(bf.text) r=r.filter(m=>m.title.toLowerCase().includes(bf.text.toLowerCase()));
@@ -880,7 +880,7 @@ function applyBF(arr){
   else r.sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
   return r;
 }
-
+ 
 // ── NAVIGATION ───────────────────────────────────────
 function goHome(){
   document.getElementById('page-home').classList.add('active');
@@ -902,7 +902,7 @@ function openBrowse(){
   updateSidebarCounts();
   renderBrowse(true);
 }
-
+ 
 // ── HOME GRIDS ────────────────────────────────────────
 function buildFeatured(){
   const m=movies[0];const small=movies.slice(1,5);
@@ -949,7 +949,7 @@ function buildFeatured(){
       </div>
     </div>`;
 }
-
+ 
 function buildHomeGrid(containerId,arr,type){
   const g=document.getElementById(containerId);g.innerHTML='';
   arr.slice(0,6).forEach((m,i)=>{
@@ -975,7 +975,7 @@ function buildHomeGrid(containerId,arr,type){
     g.appendChild(card);
   });
 }
-
+ 
 function buildAwards(){
   const g=document.getElementById('grid-premiacoes');g.innerHTML='';
   // Sort by year descending for recency
@@ -986,14 +986,14 @@ function buildAwards(){
     g.appendChild(c);
   });
 }
-
+ 
 function switchTab(name,el){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('tab-'+name).classList.add('active');
 }
-
+ 
 // ── FILM DETAIL ───────────────────────────────────────
 function openFilm(id){
   const m=[...movies,...releases].find(x=>x.id===id);if(!m)return;
@@ -1026,7 +1026,7 @@ function openFilm(id){
   rvStars=0;document.querySelectorAll('.review-star-btn').forEach(s=>s.classList.remove('lit'));
   document.getElementById('filmModal').classList.add('open');
 }
-
+ 
 function renderReviews(m){
   const list=document.getElementById('reviewList');list.innerHTML='';
   if(!m.reviews||!m.reviews.length){
@@ -1048,7 +1048,7 @@ function renderReviews(m){
     list.appendChild(div);
   });
 }
-
+ 
 function deleteReview(movieId,idx){
   const m=[...movies,...releases].find(x=>x.id===movieId);if(!m)return;
   m.reviews.splice(idx,1);
@@ -1056,7 +1056,7 @@ function deleteReview(movieId,idx){
   refreshFilmHeader(m);
   refreshGrids();
 }
-
+ 
 function refreshFilmHeader(m){
   const avg=avgStars(m.reviews);
   document.getElementById('fmTags').innerHTML=`<span class="tag ac">${m.genre}</span><span class="tag">${m.year}</span>${avg?`<span class="tag gold">${avg} ⭐</span>`:''}`;
@@ -1071,7 +1071,7 @@ function refreshFilmHeader(m){
     document.getElementById('fmAvgCount').textContent='Sem classificação ainda';
   }
 }
-
+ 
 function toggleReviewForm(id){
   if(!id){
     const f=document.getElementById('addReviewForm');f.classList.toggle('open');
@@ -1092,9 +1092,9 @@ function closeEpPanel(){
   document.querySelectorAll('.ep-row').forEach(r=>r.classList.remove('active-ep'));
   currentEpIdx=null;
 }
-
+ 
 function setRvStar(n){rvStars=n;document.querySelectorAll('.review-star-btn').forEach(s=>s.classList.toggle('lit',parseInt(s.dataset.v)<=n));}
-
+ 
 function submitReview(){
   const name=document.getElementById('rvName').value.trim();
   const text=document.getElementById('rvText').value.trim();
@@ -1110,7 +1110,7 @@ function submitReview(){
   document.getElementById('rvText').value='';
   rvStars=0;document.querySelectorAll('.review-star-btn').forEach(s=>s.classList.remove('lit'));
 }
-
+ 
 // ── EDIT ──────────────────────────────────────────────
 function openEditModal(){
   const m=movies.find(x=>x.id===currentFilmId);if(!m)return;
@@ -1123,7 +1123,7 @@ function openEditModal(){
   document.getElementById('eDesc').value=m.desc||'';
   document.getElementById('editModal').classList.add('open');
 }
-
+ 
 function saveEdit(){
   const m=movies.find(x=>x.id===currentFilmId);if(!m)return;
   m.title=document.getElementById('eTitle').value.trim()||m.title;
@@ -1137,7 +1137,7 @@ function saveEdit(){
   openFilm(currentFilmId); // refresh detail
   refreshGrids();
 }
-
+ 
 // ── BROWSE ────────────────────────────────────────────
 function renderBrowse(reset=false){
   const filtered=applyBF(movies);
@@ -1177,14 +1177,14 @@ function renderBrowse(reset=false){
   else sentinel.innerHTML=`<div class="loader-dots"><span></span><span></span><span></span></div>`;
   renderActiveTags();
 }
-
+ 
 const bObs=new IntersectionObserver(entries=>{
   if(!entries[0].isIntersecting||bLoading)return;
   const f=applyBF(movies);if(bPage*PAGE>=f.length)return;
   bLoading=true;bPage++;setTimeout(()=>{renderBrowse(false);bLoading=false;},350);
 },{rootMargin:'120px'});
 bObs.observe(document.getElementById('browseSentinel'));
-
+ 
 function setSF(el,type){
   const val=el.dataset.fv;
   if(type==='genre'){
@@ -1202,11 +1202,11 @@ function setSF(el,type){
   }
   renderBrowse(true);
 }
-
+ 
 function setBrowseSort(val){bf.sort=val;renderBrowse(true);}
-
+ 
 document.getElementById('browseInput').addEventListener('input',e=>{bf.text=e.target.value;renderBrowse(true);});
-
+ 
 function renderActiveTags(){
   const wrap=document.getElementById('activeTags');wrap.innerHTML='';
   const active=[];
@@ -1232,7 +1232,7 @@ function renderActiveTags(){
     wrap.appendChild(b);
   }
 }
-
+ 
 function updateSidebarCounts(){
   const t=movies.length;
   document.getElementById('statTotal').textContent=t;
@@ -1252,14 +1252,14 @@ function updateSidebarCounts(){
     document.getElementById('fc-'+s).textContent=cnt;
   });
 }
-
+ 
 // ── ADD MOVIE ─────────────────────────────────────────
 function openAddModal(){
   document.getElementById('addModal').classList.add('open');
   document.getElementById('fDate').value=new Date().toISOString().split('T')[0];
   ['fTitle','fYear','fPoster','fImdb','fDesc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
 }
-
+ 
 function addMovie(){
   const title=document.getElementById('fTitle').value.trim();if(!title)return;
   const m={
@@ -1278,19 +1278,19 @@ function addMovie(){
   closeModal('addModal');
   ['fTitle','fYear','fPoster','fImdb','fDesc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
 }
-
+ 
 function refreshGrids(){
   buildFeatured();
   buildHomeGrid('grid-lista',movies,'lista');
   if(document.getElementById('page-browse').classList.contains('active')) renderBrowse(true);
   updateSidebarCounts();
 }
-
+ 
 // ── MODALS ────────────────────────────────────────────
 function closeModal(id){document.getElementById(id).classList.remove('open');}
 document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');});});
-
-
+ 
+ 
 // ── SPLASH ───────────────────────────────────────────
 function chooseSplash(mode){
   const splash=document.getElementById('splash');
@@ -1316,8 +1316,8 @@ function showToast(msg){
   document.body.appendChild(t);
   setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity 0.4s';setTimeout(()=>t.remove(),400);},2000);
 }
-
-
+ 
+ 
 // ═══════════════════════════════════════════════════════
 // ── SERIES DATA ────────────────────────────────────────
 // ═══════════════════════════════════════════════════════
@@ -1326,7 +1326,7 @@ let currentSeriesId = null;
 let currentSeasonIdx = 0;
 let currentEpIdx = null;
 let srvStars = {general:0, season:0, episode:0};
-
+ 
 function genSeasons(nSeasons, epsPerSeason){
   const seasons=[];
   for(let s=1;s<=nSeasons;s++){
@@ -1338,7 +1338,7 @@ function genSeasons(nSeasons, epsPerSeason){
   }
   return seasons;
 }
-
+ 
 let seriesData = [
   {id:101,title:'Breaking Bad',year:2008,genre:'Crime',status:'concluida',
     poster:'https://www.themoviedb.org/t/p/w342/ggFHVNu6YYI5L9pCfOacjizRGt.jpg',
@@ -1434,13 +1434,13 @@ let seriesData = [
     ]
   },
 ];
-
+ 
 const seriesReleases = [
   {id:200,title:'Daredevil: Born Again',year:2025,genre:'Ação',status:'a-ver',poster:'https://placehold.co/200x300/1e2029/f72585?text=Daredevil',imdb:'',desc:'Matt Murdock e Wilson Fisk regressam numa nova saga da Marvel.',reviews:[],seasons:[]},
   {id:201,title:'The Last of Us S2',year:2025,genre:'Drama',status:'para-ver',poster:'https://placehold.co/200x300/1e2029/06d6a0?text=Last+of+Us+S2',imdb:'',desc:'Joel e Ellie continuam a sua jornada num mundo pós-apocalíptico.',reviews:[],seasons:[]},
   {id:202,title:'Andor S2',year:2025,genre:'Ficção Científica',status:'para-ver',poster:'https://placehold.co/200x300/1e2029/4cc9f0?text=Andor+S2',imdb:'',desc:'A segunda e última temporada de Andor converge com os eventos de Rogue One.',reviews:[],seasons:[]},
 ];
-
+ 
 // ── MODE CONTROL ──────────────────────────────────────
 function setMode(mode){
   currentMode=mode;
@@ -1469,10 +1469,10 @@ function setMode(mode){
   document.getElementById('searchBtnLabel').textContent=isFilmes?'Pesquisar filmes...':'Pesquisar séries...';
   window.scrollTo(0,0);
 }
-
+ 
 function onSearchClick(){currentMode==='filmes'?openBrowse():openSeriesBrowse();}
 function onAddClick(){currentMode==='filmes'?openAddModal():openAddSeriesModal();}
-
+ 
 // ── SERIES HOME ────────────────────────────────────────
 function goSeriesHome(){
   document.getElementById('page-series-browse').classList.remove('active');
@@ -1481,7 +1481,7 @@ function goSeriesHome(){
   sh.classList.add('active');sh.style.display='block';
   window.scrollTo(0,0);
 }
-
+ 
 function buildSeriesFeatured(){
   const m=seriesData[0];if(!m)return;
   const small=seriesData.slice(1,5);
@@ -1515,7 +1515,7 @@ function buildSeriesFeatured(){
       </div>
     </div>`;
 }
-
+ 
 function buildSeriesGrid(containerId, arr, type){
   const g=document.getElementById(containerId);if(!g)return;g.innerHTML='';
   arr.slice(0,6).forEach((s,i)=>{
@@ -1543,7 +1543,7 @@ function buildSeriesGrid(containerId, arr, type){
     g.appendChild(card);
   });
 }
-
+ 
 // ── SERIES AWARDS DATA ─────────────────────────────────
 const seriesAwards=[
   {icon:'🏆',name:'Emmy 2014',series:'Breaking Bad',cat:'Melhor Série Dramática — 66ª cerimónia',year:2014},
@@ -1555,7 +1555,7 @@ const seriesAwards=[
   {icon:'🌟',name:'Emmy 2019',series:'Chernobyl',cat:'Melhor Minissérie ou Filme',year:2019},
   {icon:'🏅',name:'AFI Top TV 2013',series:'Breaking Bad',cat:'Melhor Série do Ano — 5ª Temporada',year:2013},
 ];
-
+ 
 function buildSeriesAwards(){
   const g=document.getElementById('grid-series-premiacoes');if(!g)return;
   g.innerHTML='';
@@ -1566,7 +1566,7 @@ function buildSeriesAwards(){
     g.appendChild(c);
   });
 }
-
+ 
 function switchSeriesTab(name,el){
   document.querySelectorAll('#page-series-home .tab-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('#page-series-home .tab-content').forEach(c=>c.classList.remove('active'));
@@ -1574,11 +1574,11 @@ function switchSeriesTab(name,el){
   document.getElementById('stab-content-'+name).classList.add('active');
   if(name==='premiacoes') buildSeriesAwards();
 }
-
+ 
 // ── SERIES BROWSE ──────────────────────────────────────
 let sbf={text:'',genre:'Todos',status:null,sort:'date'};
 let sbPage=1;let sbLoading=false;
-
+ 
 function openSeriesBrowse(){
   sbf={text:'',genre:'Todos',status:null,sort:'date'};
   document.getElementById('seriesBrowseInput').value='';
@@ -1592,7 +1592,7 @@ function openSeriesBrowse(){
   updateSeriesSidebarCounts();
   renderSeriesBrowse(true);
 }
-
+ 
 function applySeriesBF(arr){
   let r=[...arr];
   if(sbf.text) r=r.filter(s=>s.title.toLowerCase().includes(sbf.text.toLowerCase()));
@@ -1603,7 +1603,7 @@ function applySeriesBF(arr){
   else if(sbf.sort==='year') r.sort((a,b)=>b.year-a.year);
   return r;
 }
-
+ 
 function renderSeriesBrowse(reset=false){
   const filtered=applySeriesBF(seriesData);
   const grid=document.getElementById('seriesBrowseGrid');
@@ -1638,14 +1638,14 @@ function renderSeriesBrowse(reset=false){
   else sentinel.innerHTML=`<div class="loader-dots"><span></span><span></span><span></span></div>`;
   renderSeriesActiveTags();
 }
-
+ 
 const sbObs=new IntersectionObserver(entries=>{
   if(!entries[0].isIntersecting||sbLoading)return;
   const f=applySeriesBF(seriesData);if(sbPage*8>=f.length)return;
   sbLoading=true;sbPage++;setTimeout(()=>{renderSeriesBrowse(false);sbLoading=false;},350);
 },{rootMargin:'120px'});
 sbObs.observe(document.getElementById('seriesSentinel'));
-
+ 
 function setSeriesSF(el,type){
   const val=el.dataset.sv;
   if(type==='genre'){
@@ -1661,7 +1661,7 @@ function setSeriesSF(el,type){
 }
 function setSeriesSort(val){sbf.sort=val;renderSeriesBrowse(true);}
 document.getElementById('seriesBrowseInput').addEventListener('input',e=>{sbf.text=e.target.value;renderSeriesBrowse(true);});
-
+ 
 function renderSeriesActiveTags(){
   const wrap=document.getElementById('seriesActiveTags');wrap.innerHTML='';
   const active=[];
@@ -1681,7 +1681,7 @@ function renderSeriesActiveTags(){
     wrap.appendChild(t);
   });
 }
-
+ 
 function updateSeriesSidebarCounts(){
   const t=seriesData.length;
   document.getElementById('sStatTotal').textContent=t;
@@ -1697,7 +1697,7 @@ function updateSeriesSidebarCounts(){
   document.getElementById('sfc-fan').textContent=c('Fantasia');
   document.getElementById('sfc-acao').textContent=c('Ação');
 }
-
+ 
 // ── SERIES DETAIL ──────────────────────────────────────
 function seriesAvgStars(s){
   const allRevs=[];
@@ -1711,7 +1711,7 @@ function seriesAvgStars(s){
   if(!allRevs.length) return null;
   return (allRevs.reduce((a,b)=>a+b,0)/allRevs.length).toFixed(1);
 }
-
+ 
 function openSeries(id){
   const s=[...seriesData,...seriesReleases].find(x=>x.id===id);if(!s)return;
   currentSeriesId=id;currentSeasonIdx=0;currentEpIdx=null;
@@ -1724,7 +1724,7 @@ function openSeries(id){
   });
   document.getElementById('epDetailPanel').classList.remove('open');
   document.getElementById('generalReviewPanel').style.display='none';
-
+ 
   document.getElementById('smImg').src=s.poster;
   document.getElementById('smImg').onerror=function(){this.src=PH(s.title);};
   document.getElementById('smTitle').textContent=s.title;
@@ -1752,7 +1752,7 @@ function openSeries(id){
   renderGeneralReviews(s);
   document.getElementById('seriesModal').classList.add('open');
 }
-
+ 
 function renderSeasonsTabs(s){
   const bar=document.getElementById('smSeasonsBar');bar.innerHTML='';
   if(!s.seasons||!s.seasons.length){bar.innerHTML='<span style="padding:12px 24px;color:var(--text-dim);font-size:0.8rem;">Sem temporadas registadas</span>';return;}
@@ -1770,7 +1770,7 @@ function renderSeasonsTabs(s){
     bar.appendChild(btn);
   });
 }
-
+ 
 function renderEpList(s, seasonIdx){
   const list=document.getElementById('smEpList');list.innerHTML='';
   const season=s.seasons[seasonIdx];if(!season)return;
@@ -1787,13 +1787,13 @@ function renderEpList(s, seasonIdx){
     list.appendChild(row);
   });
 }
-
+ 
 function epAvgStars(ep){
   const rated=(ep.reviews||[]).filter(r=>r.stars>0);
   if(!rated.length) return null;
   return (rated.reduce((s,r)=>s+r.stars,0)/rated.length).toFixed(1);
 }
-
+ 
 function openEpDetail(epIdx){
   const s=[...seriesData,...seriesReleases].find(x=>x.id===currentSeriesId);if(!s)return;
   const season=s.seasons[currentSeasonIdx];if(!season)return;
@@ -1813,7 +1813,7 @@ function openEpDetail(epIdx){
   document.getElementById('epDetailPanel').classList.add('open');
   document.getElementById('epDetailPanel').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
-
+ 
 function renderEpReviews(ep){
   const list=document.getElementById('epReviewList');list.innerHTML='';
   if(!ep.reviews.length){list.innerHTML=`<div style="color:var(--text-dim);font-size:0.85rem;padding:8px 0;">Ainda sem opiniões. Sê o primeiro!</div>`;return;}
@@ -1823,7 +1823,7 @@ function renderEpReviews(ep){
     list.appendChild(div);
   });
 }
-
+ 
 function renderSeasonReviews(s, seasonIdx){
   const season=s.seasons[seasonIdx];if(!season)return;
   document.getElementById('seasonReviewLabel').textContent=`💬 Opiniões — ${season.title}`;
@@ -1835,7 +1835,7 @@ function renderSeasonReviews(s, seasonIdx){
     list.appendChild(div);
   });
 }
-
+ 
 function renderGeneralReviews(s){
   const list=document.getElementById('generalReviewList');list.innerHTML='';
   if(!s.reviews.length){list.innerHTML=`<div style="color:var(--text-dim);font-size:0.85rem;padding:8px 0;">Sem opiniões gerais ainda.</div>`;return;}
@@ -1845,25 +1845,25 @@ function renderGeneralReviews(s){
     list.appendChild(div);
   });
 }
-
+ 
 function openGeneralReview(){
   const panel=document.getElementById('generalReviewPanel');
   panel.style.display=panel.style.display==='none'?'block':'none';
 }
-
+ 
 function toggleSeriesReviewForm(type){
   const formId='seriesReviewForm'+type.charAt(0).toUpperCase()+type.slice(1);
   document.getElementById(formId).classList.toggle('open');
   const dateId={general:'srvDateGeneral',season:'srvDateSeason',episode:'srvDateEp'}[type];
   if(dateId) document.getElementById(dateId).value=new Date().toISOString().split('T')[0];
 }
-
+ 
 function setSrvStar(type,n){
   srvStars[type]=n;
   const pickerId='srvStars'+type.charAt(0).toUpperCase()+type.slice(1);
   document.querySelectorAll(`#${pickerId} .review-star-btn`).forEach((b,i)=>b.classList.toggle('lit',i<n));
 }
-
+ 
 function submitSeriesReview(type){
   const nameId={general:'srvNameGeneral',season:'srvNameSeason',episode:'srvNameEp'}[type];
   const dateId={general:'srvDateGeneral',season:'srvDateSeason',episode:'srvDateEp'}[type];
@@ -1898,7 +1898,7 @@ function submitSeriesReview(type){
   document.querySelectorAll(`#${pickerId} .review-star-btn`).forEach(b=>b.classList.remove('lit'));
   document.getElementById('seriesReviewForm'+type.charAt(0).toUpperCase()+type.slice(1)).classList.remove('open');
 }
-
+ 
 function deleteEpReview(idx){
   const s=[...seriesData,...seriesReleases].find(x=>x.id===currentSeriesId);if(!s)return;
   const ep=s.seasons[currentSeasonIdx].episodes[currentEpIdx];
@@ -1912,7 +1912,7 @@ function deleteGeneralReview(idx){
   const s=[...seriesData,...seriesReleases].find(x=>x.id===currentSeriesId);if(!s)return;
   s.reviews.splice(idx,1);renderGeneralReviews(s);
 }
-
+ 
 // ── ADD/EDIT SERIES ────────────────────────────────────
 let editingSeriesId=null;
 function openAddSeriesModal(){
@@ -1966,7 +1966,7 @@ function submitSeries(){
     closeModal('addSeriesModal');
   }
 }
-
+ 
 // ── INIT ──────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded',function(){
   buildFeatured();
@@ -1978,3 +1978,4 @@ document.addEventListener('DOMContentLoaded',function(){
 </script>
 </body>
 </html>
+ 
