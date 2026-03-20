@@ -39,7 +39,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .top-section{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;padding:20px 32px 0;}
 .top-card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;cursor:pointer;transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s;animation:fadeUp 0.35s ease both;}
 .top-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,0,0,0.5),0 0 0 1px rgba(76,201,240,0.22);border-color:rgba(76,201,240,0.28);}
-.top-card-poster{position:relative;width:100%;height:380px;overflow:hidden;}
+.top-card-poster{position:relative;width:100%;aspect-ratio:2/3;overflow:hidden;}
 .top-card-poster img{width:100%;height:100%;object-fit:cover;transition:transform 0.35s;display:block;}
 .top-card:hover .top-card-poster img{transform:scale(1.05);}
 .top-card-poster .poster-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,15,19,0.95) 0%,rgba(14,15,19,0.3) 50%,transparent 100%);opacity:0;transition:opacity 0.3s;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;}
@@ -69,7 +69,7 @@ nav{position:sticky;top:0;z-index:400;background:rgba(14,15,19,0.97);backdrop-fi
 .movie-card{background:var(--bg2);border:1px solid var(--border);border-radius:5px;overflow:hidden;cursor:pointer;transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s;animation:fadeUp 0.35s ease both;}
 .movie-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,0,0,0.5),0 0 0 1px rgba(76,201,240,0.22);border-color:rgba(76,201,240,0.28);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-.card-poster{position:relative;width:100%;height:340px;overflow:hidden;}
+.card-poster{position:relative;width:100%;aspect-ratio:2/3;overflow:hidden;}
 .card-poster img{width:100%;height:100%;object-fit:cover;transition:transform 0.35s;display:block;}
 .movie-card:hover .card-poster img{transform:scale(1.05);}
 .poster-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,15,19,0.95) 0%,rgba(14,15,19,0.3) 50%,transparent 100%);opacity:0;transition:opacity 0.3s;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;}
